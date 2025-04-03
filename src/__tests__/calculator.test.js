@@ -78,14 +78,18 @@ describe('Calculator', () => {
 
   // Test cases: Invalid input format
   it("should throw ar error for invalid input format", () => {
-    expect(() => calc(3, 5,'+')).toThrow('Invalid input format');
+    expect(() => calc(3, 5, '+')).toThrow('Invalid input format');
   })
 
   it("should throw ar error for invalid input format", () => {
-    expect(() => calc(3,true, '/')).toThrow('Invalid input format');
+    expect(() => calc(3, true, '/')).toThrow('Invalid input format');
   })
 
   it("should throw ar error for invalid input format", () => {
-    expect(() => calc(3,'+')).toThrow('Invalid input format');
+    expect(() => calc(3, '+')).toThrow('Invalid input format');
+  })
+
+  it("should throw ar error for invalid input format", () => {
+    expect(() => calc('+', '5')).toThrow('Invalid input format');
   })
 });
