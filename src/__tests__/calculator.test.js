@@ -52,7 +52,15 @@ describe('Calculator', () => {
 
   // Test case: Invalid input type
   it('should throw an error for invalid input types', () => {
-    expect(() => calc('2', '+', 3)).toThrow('Invalid input type');
+    expect(() => calc('2', '+', 3)).toThrow('Invalid input types');
+  });
+
+  it('should throw an error for invalid input types', () => {
+    expect(() => calc(2, '+', '3')).toThrow('Invalid input types');
+  });
+
+  it('should throw an error for invalid input types', () => {
+    expect(() => calc(true, '+', 3)).toThrow('Invalid input types');
   });
   
   // Test cases: Invalid input format
@@ -60,7 +68,7 @@ describe('Calculator', () => {
     expect(() => calc(3, 5,'+')).toThrow('Invalid input format');
   })
 
-  it("should throw ar error for invalid input type", () => {
+  it("should throw ar error for invalid input format", () => {
     expect(() => calc(3,true, '/')).toThrow('Invalid input format');
   })
 

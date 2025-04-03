@@ -7,7 +7,7 @@ const calc = (...args) => {
   for (let i = 0; i < args.length; i++) {
     if (i % 2 === 0) {
       if (typeof args[i] !== "number")
-        throw new Error("Invalid input type");
+        throw new Error("Invalid input types");
     } else {
       if (typeof args[i] !== "string") {
         throw new Error("Invalid input format");
