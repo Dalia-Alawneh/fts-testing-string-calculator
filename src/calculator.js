@@ -1,5 +1,5 @@
 
-const calc = (...args) => {
+const validateCalculationInputs = (args) => {
   if (args.length < 3 || args.length % 2 === 0) {
     throw new Error("Invalid input format");
   }
@@ -17,10 +17,13 @@ const calc = (...args) => {
       }
     }
   }
+}
 
-  args = args.map((arg, i) => (i % 2 === 0 && arg > 1000 ? 0 : arg));
+const normalizeLargeNumbers = (args) => {
+  return args = args.map((arg, i) => (i % 2 === 0 && arg > 1000 ? 0 : arg));
+}
 
-
+const calculateWithPriority = (args) => {
   const stack = [];
   for (let i = 0; i < args.length; i++) {
     if (args[i] === "*" || args[i] === "/" || args[i] === "%") {
@@ -62,8 +65,14 @@ const calc = (...args) => {
         break;
     }
   }
-
   return result;
 }
 
-module.exports = calc
+const calculate = (...args) => {
+  validateCalculationInputs(args);
+  const processedArgs = normalizeLargeNumbers(args);
+
+  return calculateWithPriority(processedArgs);
+}
+
+module.exports = calculate
