@@ -1,4 +1,4 @@
-import calc from './../calculator';
+const calc = require('./../calculator');
 
 describe('Calculator', () => {
   // Test case: Addition
@@ -50,4 +50,5 @@ describe('Calculator', () => {
   it('should throw an error for invalid input types', () => {
     expect(() => calc('2', '+', 3)).toThrow('Invalid input type');
   });
+  
 });
