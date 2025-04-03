@@ -26,6 +26,10 @@ describe('Calculator', () => {
     expect(() => calc(6, '/', 0)).toThrow('Division by zero');
   });
 
+  it("should throw ar error when dividing by zero for multiple operations", () => {
+    expect(() => calc(3,'+', 5, '*', 10, '/', 0)).toThrow('Division by zero');
+  })
+
   // Test case: Negative numbers
   it('should handle negative numbers correctly', () => {
     expect(calc(-8, '+', 5)).toBe(-3);
