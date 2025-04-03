@@ -45,16 +45,16 @@ describe('Calculator', () => {
     expect(calc(2, '+', 3, '*', 4)).toBe(14);
   });
 
-  it('should follow the correct order of operations', () => {
+  it('should follow the correct order of operations with multiple operators', () => {
     expect(calc(2, '+', 3, '-', 40, '/', 10, '%', 2)).toBe(5);
   });
 
   // Test case: Ignore large numbers
-  it('should Ignore large numbers correctly', () => {
+  it('should Ignore large numbers correctly for multiplication', () => {
     expect(calc(1000000, '*', 1000000)).toBe(0);
   });
 
-  it('should Ignore large numbers correctly', () => {
+  it('should ignore large numbers when adding them', () => {
     expect(calc(500, '+', 1001)).toBe(500);
   });
 
@@ -68,11 +68,11 @@ describe('Calculator', () => {
     expect(() => calc('2', '+', 3)).toThrow('Invalid input types');
   });
 
-  it('should throw an error for invalid input types', () => {
+  it('should throw an error when passing a string as a second operand', () => {
     expect(() => calc(2, '+', '3')).toThrow('Invalid input types');
   });
 
-  it('should throw an error for invalid input types', () => {
+  it('should throw an error for passing a boolean as an operand', () => {
     expect(() => calc(true, '+', 3)).toThrow('Invalid input types');
   });
 
@@ -85,11 +85,11 @@ describe('Calculator', () => {
     expect(() => calc(3, true, '/')).toThrow('Invalid input format');
   })
 
-  it("should throw ar error for invalid input format", () => {
+  it("should throw ar error for invalid input format for missing a second operand", () => {
     expect(() => calc(3, '+')).toThrow('Invalid input format');
   })
 
-  it("should throw ar error for invalid input format", () => {
+  it("should throw ar error for invalid input format when passing operator first", () => {
     expect(() => calc('+', '5')).toThrow('Invalid input format');
   })
 });
