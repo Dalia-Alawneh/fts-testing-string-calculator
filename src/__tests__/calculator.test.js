@@ -27,7 +27,7 @@ describe('Calculator', () => {
   });
 
   it("should throw ar error when dividing by zero for multiple operations", () => {
-    expect(() => calc(3,'+', 5, '*', 10, '/', 0)).toThrow('Division by zero');
+    expect(() => calc(3, '+', 5, '*', 10, '/', 0)).toThrow('Division by zero');
   })
 
   // Test case: Negative numbers
@@ -43,6 +43,19 @@ describe('Calculator', () => {
   // Test case: Order of operations
   it('should follow the correct order of operations', () => {
     expect(calc(2, '+', 3, '*', 4)).toBe(14);
+  });
+
+  it('should follow the correct order of operations', () => {
+    expect(calc(2, '+', 3, '-', 40, '/', 10, '%', 2)).toBe(5);
+  });
+
+  // Test case: Ignore large numbers
+  it('should Ignore large numbers correctly', () => {
+    expect(calc(1000000, '*', 1000000)).toBe(0);
+  });
+
+  it('should Ignore large numbers correctly', () => {
+    expect(calc(500, '+', 1001)).toBe(500);
   });
 
   // Test case: Invalid operator
@@ -62,7 +75,7 @@ describe('Calculator', () => {
   it('should throw an error for invalid input types', () => {
     expect(() => calc(true, '+', 3)).toThrow('Invalid input types');
   });
-  
+
   // Test cases: Invalid input format
   it("should throw ar error for invalid input format", () => {
     expect(() => calc(3, 5,'+')).toThrow('Invalid input format');
